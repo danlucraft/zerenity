@@ -1,4 +1,6 @@
 = Zerenity Changelog
+== 1.3
+* Added a color selection dialog
 == 1.2
 * Added the scale dialog, allowing the user to use a slider to choose a numerical value.
 == 1.1
