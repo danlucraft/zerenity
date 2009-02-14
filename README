@@ -1,0 +1,59 @@
+= Zerenity
+
+== Version
+1.2
+
+== Author
+Farrel Lifson http://www.lifson.info http://www.aimred.com
+
+== Synopsis 
+Zerenity is an almost clone of Zenity(http://freshmeat.net/projects/zenity) for Ruby. It allows for the easy creation of simple graphical dialogs from a Ruby script.
+
+== Features
+Zerenity allows for the creation of the following dialogs
+* Date selection
+* Text entry
+* Error display 
+* File/directory selection
+* Information display 
+* List display and selection 
+* Progress display
+* Question display
+* Text information display and editing 
+* Warning display 
+* Sliding scales
+
+== Dependencies
+Zerenity requires GTK2(http://www.gtk.org) and Ruby/GTK2(http://ruby-gnome2.sourceforge.jp/hiki.cgi).
+
+== Installation
+Zerenity is avaiable as a Ruby gem. Links to the latest release can be found at http://www.aimred.com/files/projects/zerenity.
+
+The code is also available via it's Subversion repository at http://zerenity.googlecode.com/svn/
+
+== Example Usage
+=== User Input and Display
+ require 'zerenity'
+
+ if (name = Zerenity::Entry(:text=>"What is your name?")) 
+   Zerenity::Info(:text=>"Hello #{name}")
+ else
+   puts "No name entered"
+ end
+
+=== Progress
+ require 'zerenity'
+
+ fileList = filesToProcess(folder)
+ Zerenity::Progress(:text=>'Processing files',:autoClose=>true) do |progress|
+  fileList.each_index do |file,index|
+    processFile(file)
+    progress.update(index/fileList.length,"#{100*index/fileList.length}% processed...")
+  end
+ end
+
+== License
+Zerenity is released under the BSD license.
+
+== Copyright 
+(c) 2006 Farrel Lifson 
