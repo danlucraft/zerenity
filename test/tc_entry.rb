@@ -11,7 +11,12 @@ class TC_Entry < Test::Unit::TestCase
     Zerenity::Entry.build(@dialog,@options)
     assert_equal(true,@dialog.vbox.children[1].visibility?)
   end
-
+  
+  def test_build_adds_default_string
+    Zerenity::Entry.build(@dialog,@options.merge(:string => "hi"))
+    assert_equal("hi", @dialog.vbox.children[1].text)
+  end
+  
   def test_build_password
     @options[:password] = true
     Zerenity::Entry.build(@dialog,@options)

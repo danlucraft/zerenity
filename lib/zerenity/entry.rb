@@ -22,6 +22,7 @@ module Zerenity
       super(dialog,options)
       dialog.vbox.add(Gtk::Label.new(options[:text],false))
       entry = Gtk::Entry.new
+      entry.text = options[:string] if options[:string]
       entry.set_visibility(!options[:password])
       entry.set_activates_default(options[:activatesDefault])
       dialog.vbox.add(entry)
