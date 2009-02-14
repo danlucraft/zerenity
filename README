@@ -33,7 +33,7 @@ Zerenity requires GTK2(http://www.gtk.org) and Ruby/GTK2(http://ruby-gnome2.sour
 == Installation
 Zerenity is avaiable as a Ruby gem. Links to the latest release can be found at http://www.aimred.com/files/projects/zerenity.
 
-The code is also available via it's Subversion repository at http://github.com/farrel/zerenity/tree/master 
+The code is also available via it's Github repository at http://github.com/farrel/zerenity/tree/master 
 
 == Example Usage
 === User Input and Display
