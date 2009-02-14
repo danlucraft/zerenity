@@ -26,4 +26,10 @@ class TC_Base < Test::Unit::TestCase
     assert(@options[:ok_button].use_stock?)
     assert(@options[:cancel_button].use_stock?)
   end
+  
+  def test_button_options
+    Zerenity::Base.build(@dialog,@options.merge!(:ok_button => "Foo", :cancel_button => "Bar"))
+    assert_equal "Foo", @options[:ok_button].label
+    assert_equal("Bar", @options[:cancel_button].label)
+  end
 end

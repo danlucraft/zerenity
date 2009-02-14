@@ -1,6 +1,6 @@
 require('zerenity/entry')
 
-text = Zerenity::Entry(:text=>"Please enter your name")
+text = Zerenity::Entry(:text=>"Please enter your name", :ok_button => "Go!", :cancel_button => "Forget it")
 puts "Hello #{text}" if text
 puts "You did not enter your name" unless text
 

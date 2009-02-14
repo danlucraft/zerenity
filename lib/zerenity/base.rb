@@ -16,9 +16,11 @@ module Zerenity
       options[:text] ||= ""
     end
 
-    def self.build(dialog,options)
-      options[:ok_button] = dialog.add_button(Gtk::Stock::OK,Gtk::Dialog::RESPONSE_OK)
-      options[:cancel_button] = dialog.add_button(Gtk::Stock::CANCEL,Gtk::Dialog::RESPONSE_CANCEL)
+    def self.build(dialog, options)
+      options[:ok_button] = dialog.add_button(options[:ok_button]||Gtk::Stock::OK, 
+                                              Gtk::Dialog::RESPONSE_OK)
+      options[:cancel_button] = dialog.add_button(options[:cancel_button]||Gtk::Stock::CANCEL,
+                                                  Gtk::Dialog::RESPONSE_CANCEL)
       dialog.set_default_response(Gtk::Dialog::RESPONSE_OK) if options[:activatesDefault] 
     end
     
