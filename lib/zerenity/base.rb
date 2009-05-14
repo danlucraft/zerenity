@@ -10,6 +10,10 @@ require 'gtk2'
 module Zerenity
   CLICKED = "clicked"
   class Base # :nodoc:
+    class << self
+      attr_accessor :no_main_loop
+    end
+    
     def self.check(options)
       options[:activatesDefault] = (options[:activatesDefault].nil? || options[:activatesDefault]) 
       options[:title] ||= ""
@@ -25,7 +29,6 @@ module Zerenity
     end
     
     def self.run(options)
-      Gtk.init
       self.check(options)
       dialog = Gtk::Dialog.new(options[:title])
       self.build(dialog,options)
@@ -33,14 +36,14 @@ module Zerenity
       options[:ok_button].signal_connect(CLICKED) do
         result = self.retrieve_selection(dialog,options)
         dialog.destroy
-        Gtk.main_quit
+        Gtk.main_quit unless Base.no_main_loop
       end
       options[:cancel_button].signal_connect(CLICKED) do
         dialog.destroy
-        Gtk.main_quit
+        Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
-      Gtk.main
+      Gtk.main unless Base.no_main_loop
       return result 
     end
 

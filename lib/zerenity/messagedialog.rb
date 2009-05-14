@@ -8,7 +8,6 @@ module Zerenity
     end
     
      def self.run(options={})
-      Gtk.init
       self.check(options)
       dialog = Gtk::MessageDialog.new(nil,Gtk::Dialog::MODAL,options[:type],Gtk::MessageDialog::BUTTONS_NONE,options[:text])
       self.build(dialog,options)
@@ -17,17 +16,17 @@ module Zerenity
       if options[:cancel_button]
         options[:cancel_button].signal_connect(CLICKED) do
           dialog.destroy
-          Gtk.main_quit
+          Gtk.main_quit unless Base.no_main_loop
         end
       end
 
       options[:ok_button].signal_connect(CLICKED) do
         result = true
         dialog.destroy
-        Gtk.main_quit
+        Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
-      Gtk.main
+      Gtk.main unless Base.no_main_loop
       return result
     end
   end
