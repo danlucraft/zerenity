@@ -12,6 +12,9 @@ module Zerenity
   class Base # :nodoc:
     class << self
       attr_accessor :no_main_loop
+      def open_dialogs
+        @open_dialogs ||= []
+      end
     end
     
     def self.check(options)
@@ -36,13 +39,16 @@ module Zerenity
       options[:ok_button].signal_connect(CLICKED) do
         result = self.retrieve_selection(dialog,options)
         dialog.destroy
+        Base.open_dialogs.delete(dialog)
         Gtk.main_quit unless Base.no_main_loop
       end
       options[:cancel_button].signal_connect(CLICKED) do
         dialog.destroy
+        Base.open_dialogs.delete(dialog)
         Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
+      Base.open_dialogs << dialog
       Gtk.main unless Base.no_main_loop
       return result 
     end

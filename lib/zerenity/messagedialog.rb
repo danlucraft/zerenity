@@ -16,6 +16,7 @@ module Zerenity
       if options[:cancel_button]
         options[:cancel_button].signal_connect(CLICKED) do
           dialog.destroy
+          Base.open_dialogs.delete(dialog)
           Gtk.main_quit unless Base.no_main_loop
         end
       end
@@ -23,9 +24,11 @@ module Zerenity
       options[:ok_button].signal_connect(CLICKED) do
         result = true
         dialog.destroy
+        Base.open_dialogs.delete(dialog)
         Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
+      Base.open_dialogs << dialog
       Gtk.main unless Base.no_main_loop
       return result
     end
