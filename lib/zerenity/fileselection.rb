@@ -25,11 +25,11 @@ module Zerenity
     def self.check(options)
       super(options)
       options[:action] = (case options[:action]
-      when :save:
+      when :save
         Gtk::FileChooser::ACTION_SAVE
-      when :select_folder:
+      when :select_folder
         Gtk::FileChooser::ACTION_SELECT_FOLDER
-      when :create_folder:
+      when :create_folder
         Gtk::FileChooser::ACTION_CREATE_FOLDER
       else
         Gtk::FileChooser::ACTION_OPEN

@@ -31,7 +31,7 @@ Rake::RDocTask.new do |rdoc|
 end
 
 Rake::TestTask.new do |test|
-  test.test_files = 'test/ts_zerenity.rb' 
+  test.test_files = ['test/ts_zerenity.rb']
 end
 
 task :stats  do
