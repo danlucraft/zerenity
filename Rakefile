@@ -7,7 +7,7 @@ require 'rcov/rcovtask'
 
 SPEC = Gem::Specification.new do |spec|
   spec.name = "zerenity"
-  spec.version = "1.3"
+  spec.version = "1.4"
   spec.author = "Farrel Lifson"
   spec.email = "farrel.lifson@gmail.com"
   spec.homepage = "http://www.aimred.com/projects/zerenity"
@@ -16,7 +16,6 @@ SPEC = Gem::Specification.new do |spec|
   spec.files = Dir.glob("{lib,examples,test}/**/*")
   spec.require_path = "lib"
   spec.autorequire = "zerenity"
-  spec.has_rdoc = true
   spec.extra_rdoc_files = ["README","CHANGELOG"]
 end
 
@@ -31,7 +30,8 @@ Rake::RDocTask.new do |rdoc|
 end
 
 Rake::TestTask.new do |test|
-  test.test_files = ['test/ts_zerenity.rb']
+  test.libs << [ 'test', 'lib', 'lib/zerenity' ]
+  test.test_files = FileList['test/tc_*.rb']
 end
 
 task :stats  do
@@ -45,3 +45,5 @@ end
 Rcov::RcovTask.new do |rcov|
   rcov.test_files = FileList['test/ts_zerenity.rb']
 end
+
+task( :default => :test )
