@@ -9,6 +9,7 @@ require 'gtk2'
 #                     button when the Enter key is pressed. 
 module Zerenity
   CLICKED = "clicked"
+  CLOSE = "close"
   class Base # :nodoc:
     class << self
       attr_accessor :no_main_loop
@@ -45,6 +46,9 @@ module Zerenity
       options[:cancel_button].signal_connect(CLICKED) do
         dialog.destroy
         Base.open_dialogs.delete(dialog)
+        Gtk.main_quit unless Base.no_main_loop
+      end
+      dialog.signal_connect(CLOSE) do
         Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
