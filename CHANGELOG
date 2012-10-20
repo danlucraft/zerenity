@@ -1,4 +1,7 @@
 = Zerenity Changelog
+
+== master branch
+* Ruby 1.9 compatibilty
 == 1.3
 * Added a color selection dialog
 == 1.2
