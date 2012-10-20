@@ -11,7 +11,8 @@ Rake::RDocTask.new do |rdoc|
 end
 
 Rake::TestTask.new do |test|
-  test.test_files = ['test/ts_zerenity.rb']
+  test.libs << [ 'test', 'lib', 'lib/zerenity' ]
+  test.test_files = FileList['test/tc_*.rb']
 end
 
 task :stats  do
@@ -25,3 +26,5 @@ end
 Rcov::RcovTask.new do |rcov|
   rcov.test_files = FileList['test/ts_zerenity.rb']
 end
+
+task( :default => :test )
