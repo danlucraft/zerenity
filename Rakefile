@@ -1,7 +1,6 @@
 require 'rubygems'
 
-require 'rake/gempackagetask'
-require 'rake/rdoctask'
+require 'rdoc/task'
 require 'rake/testtask'
 require 'rcov/rcovtask'
 
