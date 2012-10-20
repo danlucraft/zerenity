@@ -1,16 +1,4 @@
-require ('test/unit')
-require('test/tc_list')
-require('test/tc_progress')
-require('test/tc_question')
-require('test/tc_textinfo')
-require('test/tc_entry')
-require('test/tc_base')
-require('test/tc_calendar')
-require('test/tc_fileselection')
-require('test/tc_info')
-require('test/tc_messagedialog')
-require('test/tc_scale')
-require('test/tc_warning')
+require 'test/all'
 
 class TS_Zerenity < Test::Unit::TestSuite
   def initialize(name="Zerenity Test Suite")

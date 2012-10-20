@@ -6,7 +6,7 @@ require 'rcov/rcovtask'
 
 Rake::RDocTask.new do |rdoc|
   rdoc.main = "README"
-  rdoc.rdoc_files.include("README","CHANGELOG","lib/**/*.rb")
+  rdoc.rdoc_files.include("README.rdoc","CHANGELOG.rdoc","lib/**/*.rb")
   rdoc.rdoc_dir = "doc"
 end
 
