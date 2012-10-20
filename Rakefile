@@ -24,7 +24,7 @@ end
 
 
 Rcov::RcovTask.new do |rcov|
-  rcov.test_files = FileList['test/ts_zerenity.rb']
+  rcov.test_files = FileList['test/tc_*.rb']
 end
 
 task( :default => :test )
