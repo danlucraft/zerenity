@@ -7,8 +7,8 @@
 Farrel Lifson http://www.lifson.info http://www.aimred.com
 
 == Contributors
-Daniel Lucraft http://www.daniellucraft.com
-Kacper Cieśla ({comboy}[https://github.com/comboy])
+* Daniel Lucraft http://www.daniellucraft.com
+* Kacper Cieśla ({comboy}[https://github.com/comboy])
 
 == Synopsis
 Zerenity is an almost clone of Zenity(http://freshmeat.net/projects/zenity) for Ruby. It allows for the easy creation of simple graphical dialogs from a Ruby script.
