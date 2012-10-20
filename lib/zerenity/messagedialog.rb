@@ -21,11 +21,14 @@ module Zerenity
           Gtk.main_quit unless Base.no_main_loop
         end
       end
-
       options[:ok_button].signal_connect(CLICKED) do
         result = true
         dialog.destroy
         Base.open_dialogs.delete(dialog)
+        Gtk.main_quit unless Base.no_main_loop
+      end
+      # dialog can be closed by ESC button, which won't trigger ok_button or cancelL_button signals
+      dialog.signal_connect(CLOSE) do
         Gtk.main_quit unless Base.no_main_loop
       end
       dialog.show_all
