@@ -1,2 +1,5 @@
 /pkg
 /doc
+/coverage
+Gemfile.lock
+*.gem
